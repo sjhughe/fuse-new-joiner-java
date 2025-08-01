@@ -2,6 +2,7 @@ package org.galatea.starter.service;
 
 
 
+import org.galatea.starter.domain.FinnhubQuote;
 import org.galatea.starter.domain.FinnhubSymbol;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,4 +29,6 @@ public interface FinnhubClient {
   @GetMapping("/stock/symbol?exchange=US")
   List<FinnhubSymbol> getAllSymbols();
 
+  @GetMapping("/quote")
+  FinnhubQuote getQuote(@RequestParam("symbol") String symbol);
 }

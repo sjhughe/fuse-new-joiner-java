@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.galatea.starter.domain.FinnhubQuote;
 import org.galatea.starter.domain.FinnhubSymbol;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,6 @@ public class FinnhubService {
     public List<FinnhubSymbol> getAllSymbols() {
         return finnhubClient.getAllSymbols();
     }
+
+    public FinnhubQuote getQuote(final String symbol) { return finnhubClient.getQuote(symbol); }
 }

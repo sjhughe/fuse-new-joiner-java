@@ -27,6 +27,7 @@ mvc:
    deleteMissionPath: /settlementEngine/mission/
    finnhub:
       getAllSymbolsPath: /finnhub/symbols
+      getQuotePath: /finnhub/quote
    max-size-trace-payload: 50000
 jms:
    listener-concurrency: 1-5
