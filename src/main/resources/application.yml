@@ -5,16 +5,14 @@ spring:
    main:
       allow-bean-definition-overriding: true
    datasource:
-      # this maps to an in-memory database that lives within a single VM.
-      # in case you want to use H2 with a file persistence or as a service
-      # reference http://www.h2database.com/html/cheatSheet.html and
-      # http://www.h2database.com/html/tutorial.html#using_server
-      url: jdbc:h2:mem:testtest
-      driver-class-name: org.h2.Driver
+      url: jdbc:postgresql://localhost:5432/postgres
+      username: postgres
+      password: password
+      driver-class-name: org.postgresql.Driver
    jpa:
       hibernate:
          ddl-auto: update
-      database-platform: org.hibernate.dialect.MySQL5Dialect
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 finnhub:
    apiKey: ${FINNHUB_API_KEY}
@@ -56,8 +54,13 @@ spring:
 spring:
    profiles: dev
    datasource:
-      username: sa
-      password:
+      url: jdbc:postgresql://localhost:5432/postgres
+      username: postgres
+      password: password
+      driver-class-name: org.postgresql.Driver
+   jpa:
+      hibernate:
+         ddl-auto: update
    rest:
       finnhubBasePath: https://finnhub.io/api/v1
 # set debug to get spring to log the classpath (and other things) on startup
