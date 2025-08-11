@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import java.time.Instant;
 
 @Entity
-@Table(name = "finnhub_quote_cache")
+@Table(name = "finnhub_quote_db")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

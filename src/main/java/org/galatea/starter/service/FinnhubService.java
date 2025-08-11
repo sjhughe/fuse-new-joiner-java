@@ -39,7 +39,8 @@ public class FinnhubService {
     public FinnhubQuote getQuote(String symbol) {
         FinnhubQuoteEntity cached = repository.findById(symbol).orElse(null);
 
-        if (cached != null && cached.getCachedAt().isBefore(cached.getCachedAt().plus(CACHE_TTL))) {
+        //Return cached entry if not stale
+        if (cached != null && Instant.now().isBefore(cached.getCachedAt().plus(CACHE_TTL))) {
             return cached.getQuote();
         }
 
