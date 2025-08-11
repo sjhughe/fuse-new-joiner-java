@@ -9,11 +9,13 @@ import net.sf.aspect4log.Log.Level;
 import org.galatea.starter.domain.FinnhubQuote;
 import org.galatea.starter.domain.FinnhubSymbol;
 import org.galatea.starter.service.FinnhubService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @Slf4j
 @Log(enterLevel = Level.INFO, exitLevel = Level.INFO)
